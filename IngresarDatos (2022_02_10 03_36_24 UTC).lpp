@@ -1,0 +1,31 @@
+tipo Arch es archivo secuencial
+
+registro Empleado
+cadena[50] nombre
+real sueldo
+caracter sexo
+fin registro
+
+Empleado emple
+Arch ArchEmple
+caracter resp
+
+inicio
+abrir "empleados.txt" como archemple para escritura
+repita
+Escriba "Nombre del emnpleado..:"
+lea emple.nombre
+Escriba "Sueldo del empleado...:"
+lea emple.sueldo
+Escriba "Sexo ..:"
+lea emple.sexo
+
+escribir archemple, emple.nombre
+escribir archemple, emple.sueldo
+escribir archemple, emple.sexo
+Escribir "Desea Continuar ..:"
+lea resp
+hasta (resp="S") o (resp="N")
+hasta resp='N'
+cerrar archemple
+fin
