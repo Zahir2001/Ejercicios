@@ -1,0 +1,114 @@
+// Programa para crear una apariencia de entrada en LLP
+// Diseñado por: Edis romero
+// Variables 
+// L Variable de control de los ciclos en Columnas
+// C Variable de control de los ciclos en Lineas
+// OP Variable que acepta la opcion elegida por el usuario
+Entero L,C,OP
+Inicio
+	// Cuadro color azul
+	Para L <- 1 Hasta 29 Haga
+		Para C <- 1 Hasta 120 Haga
+			Llamar Color_Fondo(1)
+			Llamar Posicionar_Cursor(C,L)
+			Escriba " "
+		Fin Para
+	Fin Para
+	// Cuadro color negro
+	Para L <- 2 Hasta 28 Haga
+		Para C <- 3 Hasta 117 Haga
+			Llamar Color_Fondo(0)
+			Llamar Posicionar_Cursor(C,L)
+			Escriba " "
+		Fin Para
+	Fin Para
+	// Cuadro color gris (sombra)
+	Para L <- 4 Hasta 10 Haga
+		Para C <- 7 Hasta 115 Haga
+			Llamar Color_Fondo(8)
+			Llamar Posicionar_Cursor(C,L)
+			Escriba " "
+		Fin Para
+	Fin Para
+	// Cuadro color blanco (titulo)
+	Para L <- 3 Hasta 9 Haga
+		Para C <- 5 Hasta 113 Haga
+			Llamar Color_Fondo(15)
+			Llamar Posicionar_Cursor(C,L)
+			Escriba " "
+		Fin Para
+	Fin Para
+	// Titulo
+	Llamar Color_Fondo(9)
+	Llamar Color_Texto(15)
+	Llamar Posicionar_Cursor(7,4)
+	Escriba "           EEEE  DDD   II  SSSS  Y  Y  SSSS  TTTT  EEEE  M   M  SSSS    SSSS  OOOO  FFFF  TTTT           "
+	Llamar Posicionar_Cursor(7,5)
+	Escriba "           EE    D  D  II  SS    Y Y   SS     TT   EE    MM MM  SS      SS    O  O  FF     TT            "
+	Llamar Posicionar_Cursor(7,6)
+	Escriba "           EEEE  D  D  II  SSSS  YY    SSSS   TT   EEEE  M M M  SSSS    SSSS  O  O  FFFF   TT            "
+	Llamar Posicionar_Cursor(7,7)
+	Escriba "           EE    D  D  II    SS  YY      SS   TT   EE    M   M    SS      SS  O  O  FF     TT   @@       "
+	Llamar Posicionar_Cursor(7,8)
+	Escriba "           EEEE  DDD   II  SSSS  YY    SSSS   TT   EEEE  M   M  SSSS    SSSS  OOOO  FF     TT   @@       "
+
+	// Cuadro color gris (sombra)
+	Para L <- 13 Hasta 27 Haga
+		Para C <- 7 Hasta 115 Haga
+			Llamar Color_Fondo(8)
+			Llamar Posicionar_Cursor(C,L)
+			Escriba " "
+		Fin Para
+	Fin Para
+	// Cuadro color blanco (menu)
+	Para L <- 12 Hasta 26 Haga
+		Para C <- 5 Hasta 113 Haga
+			Llamar Color_Fondo(15)
+			Llamar Posicionar_Cursor(C,L)
+			Escriba " "
+		Fin Para
+	Fin Para
+	OP<-9
+	Mientras OP<>4 Haga
+		// Titulo
+		Llamar Color_Fondo(9)
+		Llamar Posicionar_Cursor(7,14)
+		Escriba "*********************************************************************************************************"
+		Llamar Posicionar_Cursor(7,15)
+		Escriba "*                          M E N U   P R I N C I P A L   D E L   S I S T E M A                          *"
+		Llamar Posicionar_Cursor(7,16)
+		Escriba "*********************************************************************************************************"
+		Llamar Posicionar_Cursor(7,17)
+		Escriba "*                                        1.- Area de un Circulo                                         *"
+		Llamar Posicionar_Cursor(7,18)
+		Escriba "*                                        2.- Area de un Cuadrado                                        *"
+		Llamar Posicionar_Cursor(7,19)
+		Escriba "*                                        3.- Area de un Triangulo                                       *"
+		Llamar Posicionar_Cursor(7,20)
+		Escriba "*                                        4.- Salir del sistema                                          *"
+		Llamar Posicionar_Cursor(7,21)
+		Escriba "*********************************************************************************************************"
+		Llamar Posicionar_Cursor(7,22)
+		Escriba "*                                        Cual es tu opcion (1-4)? [ ]                                   *"
+		Llamar Posicionar_Cursor(7,23)
+		Escriba "*********************************************************************************************************"
+		Llamar Posicionar_Cursor(74,22)
+		Lea OP
+		si OP=1 entonces
+			Llamar Posicionar_Cursor(7,25)
+			Escriba "*                                        1.- Area de un Circulo                                         *"
+			sino si OP=2 entonces
+				Llamar Posicionar_Cursor(7,25)
+				Escriba "*                                        2.- Area de un Cuadrado                                        *"
+				sino si OP=3 entonces
+					Llamar Posicionar_Cursor(7,25)
+					Escriba "*                                        3.- Area de un Triangulo                                       *"
+					sino si OP=4 entonces
+						Llamar Posicionar_Cursor(7,25)
+						Escriba "*                                        4.- Salir del sistema                                          *"
+					Fin si
+				Fin si
+			Fin si
+		Fin si	
+	Fin Mientras
+Fin

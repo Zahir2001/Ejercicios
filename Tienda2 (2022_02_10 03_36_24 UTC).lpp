@@ -1,0 +1,151 @@
+//Programa para descuento de un supermercado
+
+//Tipo archivo
+Tipo tArchivo es archivo secuencial
+
+//Registro del Cliente
+Registro cliente
+        cadena[50] nombre
+        cadena[50] apellido
+		Entero cod
+		Real st, t, desc
+Fin registro
+
+//Variables globales
+tArchivo cArchivo
+cliente iCliente
+Booleano continuar
+Entero menu
+
+//Titulo
+Procedimiento CrearTitulo(cadena[100] cTitulo)
+Inicio
+      Llamar nueva_linea
+      Escriba "**************" + cTitulo + "**************"
+      Llamar nueva_linea
+      Llamar nueva_linea
+Fin
+
+//Cargar Datos
+Procedimiento CargueInicialDatos
+Inicio
+      Abrir "clientes.txt" como cArchivo para lectura
+      
+      Leer cArchivo, iCliente.nombre
+      Leer cArchivo, iCLiente.apellido
+      Leer cArchivo, iCliente.cod
+      Leer cArchivo, iCliente.st
+      Leer cArchivo, iCliente.desc
+      Leer cArchivo, iCliente.t
+      
+      Cerrar cArchivo
+      
+      Llamar nueva_linea
+      Escriba "Extraccion de informacion realizada correctamente"
+      Llamar nueva_linea
+Fin
+
+Procedimiento ActualizarArchivo
+Inicio
+      Abrir "clientes.txt" como cArchivo para escritura
+      
+      Escribir cArchivo, iCliente.nombre
+      Escribir cArchivo, iCLiente.apellido
+      Escribir cArchivo, iCliente.cod
+      Escribir cArchivo, iCliente.st
+      Escribir cArchivo, iCliente.desc
+      Escribir cArchivo, iCliente.t
+      
+      		 Si (cod = 5555) o (cod = 6666) o (cod = 7777) o (st >= 1000) entonces
+                iClient.desc<-0.20*iCliente.st
+            Sino
+                iClient.desc<-0.05*iCliente.st
+            Fin si
+            
+          cli[i].t<-cli[i].st-cli[i].desc
+          
+                
+      Cerrar cArchivo
+          
+       Llamar nueva_linea
+       Escriba "Se realizo correctamente la escritura de los datos"
+      Llamar nueva_linea
+       
+Fin
+
+//Mostrar Datos
+Procedimiento MostrarDatos
+Inicio
+      LLamar nueva_linea
+      Llamar CrearTitulo("Informacion Actual")
+      
+      Escriba "Nombre del cliente: " + iCliente.nombre
+      LLamar nueva_linea
+      
+      Escriba "Apellido del cliente: " + iCliente.apellido
+      LLamar nueva_linea
+      
+      Escriba "Codigo del cliente: " + iCliente.cod
+      LLamar nueva_linea
+      
+      Escriba "Subtotal del cliente: " + iCliente.st
+      LLamar nueva_linea
+      
+      Escriba "Descuento del cliente: " + iCliente.desc
+      LLamar nueva_linea
+      
+      Escriba "Total a pagar del cliente: " + iCliente.t
+      LLamar nueva_linea
+Fin
+      
+//Menu
+Funcion CargarMenu : entero
+Entero opcion
+Inicio
+      Llamar nueva_linea
+      
+      Llamar CrearTitulo("Menu de Opciones")
+      
+      Escriba "1. Ingresar Informacion. "
+      Llamar nueva_linea
+      Escriba "2. Mostrar Informacion Actual. "
+      Llamar nueva_linea
+      Escriba "3. Salir. "
+      Llamar nueva_linea
+      
+      Escriba "Que opcion desea realizar: "
+      Lea opcion
+Fin
+
+Inicio
+
+continuar <- verdadero
+
+Llamar CargueInicialDatos()
+
+Repita
+
+      menu <- CargarMenu()
+      
+      
+    Caso menu
+        1:
+          
+          Llamar ActualizarArchivo()
+          
+        2:
+        
+          Llamar MostrarDatos
+          
+        3:
+        
+          continuar <- falso
+         sino:
+             Escriba "Por favos ingrese una opcion entre 1 y 3"
+     Fin caso
+
+Hasta (continuar = falso)
+
+Escriba "Programa Finalizado"
+
+Fin

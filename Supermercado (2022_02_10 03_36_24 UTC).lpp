@@ -1,0 +1,77 @@
+//Programa para descuento de un supermercado
+
+//Registro del Cliente
+Registro cliente
+        cadena[50] nombre
+		Entero cod
+		Real st, t, desc
+Fin registro
+
+//Arreglo
+Arreglo[5] de cliente cli
+
+//Procedimiento de Ingreso
+Procedimiento Ingreso(var arreglo[5] de cliente cli)
+Entero i
+Inicio
+		Para i <- 1 hasta 2 haga
+		        Llamar Nueva_linea
+		        Escriba "Nombre del cliente: "
+		        Lea cli[i].nombre
+				Escriba "Ingresar el codigo del cliente: "
+				Lea cli[i].cod
+				Escriba "Ingresar el subtotal: "
+				Lea cli[i].st
+		Fin Para
+Fin
+
+//Funcion del descuento
+Funcion descuento(entero cod, real st) : real
+Inicio
+      Si (cod = 5555) o (cod = 6666) o (cod = 7777) o (st >= 1000) entonces
+           retorne 0.20*st
+        Sino
+              retorne 0.05*st
+      Fin si
+Fin
+
+//Procedimiento de Calculo
+Procedimiento Calculo(var arreglo[5] de cliente cli)
+entero i
+		inicio
+				Para i <- 1 hasta 2 haga
+				cli[i].desc<-descuento(cli[i].cod, cli[i].st)
+				cli[i].t<-cli[i].st-cli[i].desc
+		Fin Para
+Fin
+
+//Procedimiento para Presentar
+Procedimiento Presentar(arreglo[5] de cliente cli)
+entero i
+Inicio
+			Para i <- 1 hasta 2 haga
+			        Llamar Nueva_linea
+			        Escriba "---------------------------------------"
+			        Llamar Nueva_linea
+			        Escriba "Nombre del cliente: ", cli[i].nombre
+					Llamar Nueva_linea
+					Escriba "Codigo del cliente: ", cli[i].cod
+					Llamar Nueva_linea
+					Escriba "El subtotal es: ", cli[i].st
+					Llamar Nueva_linea
+					Escriba "El descuento es: ", cli[i].desc
+					Llamar Nueva_linea
+					Escriba "El total a pagar es: ", cli[i].t
+					Llamar Nueva_linea
+					Llamar Nueva_linea
+			Fin Para
+Fin
+
+//Llamar Procedimientos
+Inicio
+		Llamar Ingreso(cli)
+		Llamar Calculo(cli)
+		Llamar Presentar(cli)
+Fin
+      
+Fin  
